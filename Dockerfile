@@ -1,11 +1,9 @@
 FROM node:10.18
 
-ARG DEBIAN_FRONTEND=noninteractive
-
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
 # Install ImageMagick v6.8
-RUN apt-get update && apt-get -y install --no-install-recommends xz-utils build-essential checkinstall apt-utils libx11-dev libxext-dev zlib1g-dev libjpeg-dev libfreetype6-dev libxml2-dev
+RUN apt-get update && apt-get -y install --no-install-recommends xz-utils build-essential checkinstall libx11-dev libxext-dev zlib1g-dev libjpeg-dev libfreetype6-dev libxml2-dev
 WORKDIR /opt
 RUN wget https://imagemagick.org/download/releases/ImageMagick-6.8.0-10.tar.xz && tar -xJf ImageMagick-6.8.0-10.tar.xz
 WORKDIR /opt/ImageMagick-6.8.0-10
